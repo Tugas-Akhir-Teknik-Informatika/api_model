@@ -8,7 +8,9 @@ import traceback
 
 app = Flask(__name__)
 model = load_model('model/model_efficientnet_b0.h5')
-class_names = ['Normal', 'Psoriasis', 'Folliculitis', 'Lichen Planopilaris']
+
+# Kelas sesuai urutan pada saat pelatihan
+class_names = ['Folliculitis', 'Lichen Planopilaris', 'Normal', 'Psoriasis']
 
 @app.route('/predict', methods=['POST'])
 def predict():
