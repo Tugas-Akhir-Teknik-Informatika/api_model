@@ -8,6 +8,10 @@ app = Flask(__name__)
 model = load_model('model/model_efficientnet_b0.h5')
 class_names = ['Normal', 'Psoriasis', 'Folliculitis', 'Lichen Planopilaris']
 
+@app.route('/')
+def home():
+    return "EfficientNet API is running!"
+
 @app.route('/predict', methods=['POST'])
 def predict():
     if 'file' not in request.files:
@@ -28,6 +32,3 @@ def predict():
         'prediction': label,
         'confidence': round(confidence, 3)
     })
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=10000)
