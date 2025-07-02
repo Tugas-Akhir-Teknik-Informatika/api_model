@@ -12,6 +12,10 @@ model = load_model('model/model_efficientnet_b0.h5')
 # Kelas sesuai urutan pada saat pelatihan
 class_names = ['Folliculitis', 'Lichen Planopilaris', 'Normal', 'Psoriasis']
 
+@app.route('/')
+def home():
+    return "EfficientNet API is running!"
+
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
