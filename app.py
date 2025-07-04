@@ -31,11 +31,11 @@ def predict():
         preds = model.predict(img_array)
         pred_index = np.argmax(preds)
         label = class_names[pred_index]
-        confidence = float(np.max(preds))
+        confidence = float(np.max(preds)) * 100
 
         return jsonify({
             'prediction': label,
-            'confidence': round(confidence, 3)
+            'confidence': f"{round(confidence, 2)}%"
         })
 
     except Exception as e:
