@@ -35,7 +35,7 @@ def predict():
 
         return jsonify({
             'prediction': label,
-            'confidence': f"{round(confidence, 2)}%"
+            'confidence': f"{round(confidence)}%"
         })
 
     except Exception as e:
